@@ -1,0 +1,5 @@
+untuk melakukan insert atau update gunakan perintah funvtion model save
+    => modul bisa di baca di (funtion save) https://codeigniter4.github.io/userguide/models/model.html
+
+
+ <input style="height: 10px;" min="<?=date('Y-m-d', strtotime('+5 days', strtotime($tgl1)))?>" required type="date"  name="pickup_date" class="form-control-custom w-100  " id="pickup_date"></input>
