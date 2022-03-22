@@ -22,7 +22,9 @@ class Dashboard extends BaseController
 		$data['total_category']		= $this->dashboard_model->getCountCategory();
 		$data['total_user']			= $this->dashboard_model->getCountUser();
 		$data['latest_trx']			= $this->dashboard_model->getLatestTrx();
-
+		$data['status_success']		= $this->dashboard_model->getStatusSuccess();
+		$data['status_pending']		= $this->dashboard_model->getStatusPending();
+		$data['status_cancel']		= $this->dashboard_model->getStatusCancel();
 		$chart['grafik']			= $this->dashboard_model->getGrafik();
 		$data['get_grafik']			= count($chart['grafik']);
 		// dd(count($this->dashboard_model->getGrafik()));

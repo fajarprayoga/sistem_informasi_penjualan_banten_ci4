@@ -46,6 +46,12 @@
                         <p>Manajemen Transaksi</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('admin/rate'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>Manajemen Komentar</p>
+                    </a>
+                </li>
                 <li class="nav-header">Akun</li>
                 <li class="nav-item">
                     <a href="<?php echo base_url('auth/logout'); ?>" class="nav-link">

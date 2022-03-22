@@ -25,24 +25,7 @@
                     <div class="card">
                         <div class="card-header">
                             Daftar User
-                            <!-- <div class="float-right">
-                                <div class="col-12">
-                                    <form action="<?= base_url('admin/user/report')?>" method="GET">
-                                        <div class="row" >
-                                            <div class="col-auto">
-                                                <select name="user_status_report" class="form-control">
-                                                    <option value=""  >All</option>
-                                                    <option value="Active"  >Active</option>
-                                                    <option value="Inactive" >Inactive</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-1">
-                                                <button class="btn tbn-sm btn-info" >Report</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->
+  
                         </div>
                         <div class="card-body">
                         
@@ -65,25 +48,7 @@
                             </div>
                             <?php } ?>
 
-                            <!-- filter -->
-                            <!-- <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="statusUser">Status</label>
-                                        <select  id="statusUser" class="form-control">
-                                            <option value="" default>ALL</option>
-                                            <option value="Active" <?= isset($_GET['status']) && $_GET['status'] =='Active'? 'selected' : '' ?> >Active</option>
-                                            <option value="Inactive" <?= isset($_GET['status']) && $_GET['status'] =='Inactive'? 'selected' : '' ?> >Inactive</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label for="searchUser">Search</label>
-                                        <input type="text" name="" id="searchUser" class="form-control">
-                                    </div>
-                                </div>
-                            </div> -->
+                    
                              <!-- <a href="<?php echo base_url('admin/category/create'); ?>" class="btn btn-primary float-right my-2">Tambah</a> -->
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-stripped">

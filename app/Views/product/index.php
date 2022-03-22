@@ -25,24 +25,6 @@
                     <div class="card">
                         <div class="card-header">
                             Daftar Produk
-                            <!-- <div class="float-right">
-                                <div class="col-12">
-                                    <form action="<?= base_url('admin/product/report')?>" method="GET">
-                                        <div class="row" >
-                                            <div class="col-auto">
-                                                <select name="order_status_report" class="form-control">
-                                                    <option value=""  >All</option>
-                                                    <option value="Active"  >Active</option>
-                                                    <option value="Inactive" >Inactive</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-1">
-                                                <button class="btn tbn-sm btn-info" >Report</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="card-body">
                         
@@ -65,33 +47,6 @@
                             </div>
                             <?php } ?>
 
-                            <!-- filter
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <?php 
-                                        echo form_label('Category');
-                                        echo form_dropdown('category', $categories, $category, ['class' => 'form-control', 'id' => 'category']); 
-                                    ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <?php 
-                                        echo form_label('Search');
-                                        $form_keyword = [
-                                            'type'  => 'text',
-                                            'name'  => 'keyword',
-                                            'id'    => 'keyword',
-                                            'value' => $keyword,
-                                            'class' => 'form-control',
-                                            'placeholder' => 'Enter keyword ...'
-                                        ];
-                                        echo form_input($form_keyword);
-                                    ?>
-                                    </div>
-                                </div>
-                            </div> -->
                             <a href="<?php echo base_url('admin/product/create'); ?>" class="btn btn-primary float-right my-2">Tambah</a>
                             <div class="table-responsive">
                             <table class="table table-bordered table-hover table-stripped">

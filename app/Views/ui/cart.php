@@ -10,7 +10,7 @@
                             <h2>Keranjang Anda</h2>
                         </div>
                         <p style="color: black;">
-                            Silahkan melakukan pembayaran sebesar <span id="total_desc" >0</span> Ke <strong>Rekening BNI a/n <?= getenv('rek_bni') ?></strong> 
+                            Silahkan melakukan pembayaran sebesar Ke <strong>Rekening BNI a/n <?= getenv('rek_bni') ?></strong> 
                             atas Nama  <strong> <?= getenv('nama_rek_bni') ?></strong> dan Upload bukti pembayaran di histori order
                         </p>
                         <div class="cart-table clearfix">

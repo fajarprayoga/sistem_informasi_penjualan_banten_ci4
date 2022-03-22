@@ -24,6 +24,8 @@
                 <tr bgcolor=#dee2e6 align=center>
                     <td >No</td>
                     <td>Name</td>
+                    <td>Pelanggan</td>
+                    <td>Phone</td>
                     <td>Product</td>
                     <td>Status</td>
                     <td>Total</td>
@@ -36,6 +38,8 @@
                     <tr>
                         <td><?php echo $index + 1 ?></td>
                         <td><?= '#order'.$order['order_id'] ?></td>
+                        <td><?= $order['username'] ?></td>
+                        <td><?= $order['phone'] ?></td>
                         <td style="text-align: left;">
                             <ul>
                                 <?php foreach ($order_details->getOrderDetail($order['order_id']) as $index => $detail) { ?>

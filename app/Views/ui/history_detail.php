@@ -69,116 +69,77 @@
     </div>
 </div>
 
+<script>
+    $('#nota').on('click', () => {
+        alert('jalo')
+    })
+</script>
+
 <?php echo view('_partials/ui/footer');?>
 
 
 <div class="modal fade" id="modal-change-status" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Detail</h5>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>Nama Pemesan</td>
-                        <td>:</td>
-                        <td><?= $order['username'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Phone</td>
-                        <td>:</td>
-                        <td><?= $order['phone'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Status</td>
-                        <td>:</td>
-                        <td><?= $order['order_status'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Destination</td>
-                        <td>:</td>
-                        <td><?= $order['order_destination'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>:</td>
-                        <td><?= $order['order_description'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Delivery Cost</td>
-                        <td>:</td>
-                        <td> <?php echo 'Rp. '.number_format($delivery_cost); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Type</td>
-                        <td>:</td>
-                        <td> <?php echo ($order['order_type']); ?></td>
-                    </tr>
-                    <?php if($order['order_type'] =='Dp') : ?>
-                    <tr>
-                        <td>Total Pembayarn</td>
-                        <td>:</td>
-                        <td>
-                            <?php echo 'Rp. '.number_format($order['order_pay_1'] + $order['order_pay_2']); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sisa Pembayaran</td>
-                        <td>:</td>
-                        <td> <?php echo 'Rp. '.number_format($order['order_total']- ($order['order_pay_1'] + $order['order_pay_2'])); ?></td>
-                    </tr>
-                    <?php endif?>
+        <div class="modal-content">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Detail :  <?= $order['order_total'] - ($order['order_pay_1'] + $order['order_pay_2']) <= 0 ? 'Lunas' : 'Belum Lunas' ?> </h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Nama Pemesan</td>
+                            <td>:</td>
+                            <td><?= $order['username'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>:</td>
+                            <td><?= $order['phone'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td><?= $order['order_status'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Destination</td>
+                            <td>:</td>
+                            <td><?= $order['order_destination'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Cost</td>
+                            <td>:</td>
+                            <td> <?php echo 'Rp. '.number_format($delivery_cost); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>:</td>
+                            <td> <?php echo ($order['order_type']); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total Pembayarn</td>
+                            <td>:</td>
+                            <td>
+                                <?php echo 'Rp. '.number_format($order['order_pay_1'] + $order['order_pay_2']); ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sisa Pembayaran</td>
+                            <td>:</td>
+                            <td> <?php echo 'Rp. '.number_format($order['order_total']- ($order['order_pay_1'] + $order['order_pay_2'])); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>:</td>
+                            <td><?= $order['order_description'] ?></td>
+                        </tr>
                     </tbody>
                 </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <a href="<?= base_url('market/nota/' . $order['order_id']) ?>" target="__blank" class="btn btn-primary">Download</a>
+                </div>
             </div>
         </div>
-       <!-- <div class="card" >
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <table class="table table-responsive" style="background-color: red;">
-                    <tbody style="width: 100%;">
-                    <tr>
-                        <td>Status</td>
-                        <td>:</td>
-                        <td><?= $order['order_status'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Destination</td>
-                        <td>:</td>
-                        <td><?= $order['order_destination'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>:</td>
-                        <td><?= $order['order_description'] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Delivery Cost</td>
-                        <td>:</td>
-                        <td> <?php echo 'Rp. '.number_format($delivery_cost); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Type</td>
-                        <td>:</td>
-                        <td> <?php echo ($order['order_type']); ?></td>
-                    </tr>
-                    <?php if($order['order_type'] =='Dp') : ?>
-                    <tr>
-                        <td>Total Pembayarn</td>
-                        <td>:</td>
-                        <td>
-                            <?php echo 'Rp. '.number_format($order['order_pay_1'] + $order['order_pay_2']); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sisa Pembayaran</td>
-                        <td>:</td>
-                        <td> <?php echo 'Rp. '.number_format($order['order_total']- $order['order_pay_1']); ?></td>
-                    </tr>
-                    <?php endif?>
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
     </div>
 </div>

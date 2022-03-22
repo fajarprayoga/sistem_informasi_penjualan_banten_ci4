@@ -37,40 +37,40 @@
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3><?php echo $total_product; ?></h3>
+                            <h3><?php echo $status_success; ?></h3>
 
-                            <p>Produk</p>
+                            <p>Order Berhasil</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-cart-plus"></i>
                         </div>
-                        <a href="<?php echo base_url('admin/product'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('admin/order'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3><?php echo $total_category; ?></h3>
+                            <h3><?php echo $status_pending; ?></h3>
 
-                            <p>Kategori</p>
+                            <p>Order Pending</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-tags"></i>
                         </div>
-                        <a href="<?php echo base_url('admin/category'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('admin/order'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3><?php echo $total_user; ?></h3>
+                            <h3><?php echo $status_cancel; ?></h3>
 
-                            <p>User</p>
+                            <p>Order di cancel</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <a href="<?php echo base_url('admin/user'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('admin/order'); ?>" class="small-box-footer">Info detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -101,13 +101,11 @@
                                     <thead>
                                         <tr class="bg-primary">
                                             <th width="10px">No</th>
-                                            <th>Orderan</th>
                                             <th>Nama Pelanggan</th>
                                             <th>No Hp </th>
                                             <th>Tanggal Dipesan</th>
-                                            <th>Tanggal Pengambilan</th>
-                                            <th>Harga + Biaya Pengiriman</th>
-                                            <th>Pembayaran</th>
+                                            <th>Harga(Rp)</th>
+                                            <th>Pembayaran(Rp)</th>
                                             <th>Sisa Pembayaran</th>
                                             <th>Status</th>
                                         </tr>
@@ -116,10 +114,8 @@
                                         <?php foreach($latest_trx as $key => $row){ ?>
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
-                                            <td><?php echo '#'.$row['order_id']; ?></td>
                                             <td><?php echo $row['username']; ?></td>
                                             <td><?php echo $row['phone']; ?></td>
-                                            <td><?php echo date('j F Y', strtotime($row['created_at'])); ?></td>
                                             <td><?php echo date('j F Y', strtotime($row['order_pickup_date'])); ?></td>
                                             <td><?php echo "Rp. ".number_format($row['order_total'], false, false, "."); ?></td>
                                             <td><?php echo "Rp. ".number_format(($row['order_pay_1'] + $row['order_pay_2']), false, false, "."); ?></td>

@@ -60,7 +60,7 @@
                 <div class="newsletter-text mb-100" style="text-align: justify;">
                     <h2>Selamat Datang di  <span>Nikasa</span></h2>
                     <p>Nikasa Store merupakan usaha kecil yang bergerak di bidang pemasaran. Toko ini didirikan oleh Ni Nyoman Mudiani yang berdiri sejak tahun 2001 hingga sekarang memiliki banyak pelanggan setia. Nikasa Store terletak di Jalan Sri Ram, Desa Legian, Kecamatan Kutra, Kabupaten Badung. Operasional Nikasa Store buka setiap hari mulai dari jam 4 pagi sampai jam 5 sore WITA. </p>
-                        <a href="https://api.whatsapp.com/send?phone=6282235265301?>"  style="color: white; font-size: 20px;" class="nav-link">
+                        <a href="https://api.whatsapp.com/send?phone=6285954518033?>"  style="color: white; font-size: 20px;" class="nav-link">
                         <i class="nav-icon fa fa-phone mx-1"></i><span>6285954518033</span>
                     </a>
                 </div>
@@ -139,8 +139,9 @@ var review ='';
 $(document).ready(function() {
 
     $.ajax({
-        url:"<?php echo base_url('market/rate');?>",
+        url:"<?php echo base_url('market/rate/comment');?>",
         type:'Get',
+        data : {"req" : "ajax"},
         dataType: 'json',
         success:function(data) {
             // console.log(data);

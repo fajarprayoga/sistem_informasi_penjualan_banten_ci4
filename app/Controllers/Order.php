@@ -62,7 +62,8 @@ class Order extends Controller
 
     public function order_detail($id)
     {
-        $data['order'] = $this->order_model->getOrder($id);
+        // $data['order'] = $this->order_model->getOrder($id);
+        $data['order'] = $this->order_model->join('users', 'users.id = orders.user_id')->getOrder($id);
         $data['order_details'] = $this->order_detail_model->getOrderDetail($id);
         return view('order/detail', $data);
     }
@@ -103,18 +104,18 @@ class Order extends Controller
 
     public function report()
     {
-        $where      = [];
-        $status           = $this->request->getGet('order_status_report');
+        $where  = [];
+        $status = $this->request->getGet('order_status_report');
         $start = $this->request->getGet('start');
         $end = $this->request->getGet('end');
         if(!empty($status)){
             $where = ['orders.order_status' => $status];
         }
         if(!empty($start) && !empty($end)){
-            $data['orders'] = $this->order_model->where($where)->where("created_at BETWEEN " ."'$start '". 'AND '. "'$end'")->get()->getResultArray();
+            $data['orders'] = $this->order_model->where($where)->where("created_at BETWEEN " ."'$start '". 'AND '. "'$end'")->orderBy('order_id', 'DESC')->join('users', 'users.id = orders.user_id')->get()->getResultArray();
         }
         else{
-            $data['orders'] = $this->order_model->where($where)->get()->getResultArray();
+            $data['orders'] = $this->order_model->where($where)->orderBy('order_id', 'DESC')->join('users', 'users.id = orders.user_id')->get()->getResultArray();
         }
 
         $data['order_details'] = $this->order_detail_model;
@@ -136,4 +137,6 @@ class Order extends Controller
         $dompdf->stream($filename);
         return view('order/report', $data);
     }
+
+
 }

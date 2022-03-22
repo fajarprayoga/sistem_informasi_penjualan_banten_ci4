@@ -22,13 +22,13 @@ class Shop extends BaseController
 
 		$category = $this->request->getGet('category');
 		if($category){
-			$products =  $this->product_model->like('product_name', $search)->where('categories.category_id', $category)->join('categories', 'categories.category_id = products.category_id')->paginate(6, 'jq');
+			$products =  $this->product_model->where('product_status', 'Active')->like('product_name', $search)->where('categories.category_id', $category)->join('categories', 'categories.category_id = products.category_id')->where('category_status', 'Active')->paginate(6, 'jq');
 		}
 
 		$data = [
 			'products' => $products ,
 			'pager' => $this->product_model->pager,
-			'categories' => $this->category_model->getCategory()
+			'categories' => $this->category_model->where('category_status', 'Active')->get()->getResultArray()
 		];
 
 		// App/Views/..../..../

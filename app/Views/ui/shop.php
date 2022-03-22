@@ -26,6 +26,9 @@
             <div class="container-fluid">
             <div class="row">
                     <div class="col-12">
+                        <h2>Banten ini merupakan ciri khas denpasar</h2>
+                    </div>
+                    <div class="col-12">
                         <div class="product-topbar d-xl-flex align-items-end justify-content-between">
                             <div class="product-sorting d-flex">
                                 <div class="view-product d-flex align-items-center">

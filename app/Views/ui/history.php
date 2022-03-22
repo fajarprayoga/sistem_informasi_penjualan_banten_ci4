@@ -104,10 +104,27 @@
                                         </td>
                                         <td style="max-width:20%;" >
                                             <!-- <a href="#" class="btn btn-sm btn-primary">Upload</a> -->
-                                            <button type="button" class="btn btn-sm btn-custom btn-primary" style="height: 25px; width: 60px; font-size: 12px;" data-toggle="modal" data-target="#modal-change-status<?=$order['order_id']?>">Upload</button>
-                                            <a href="<?= base_url('market/history-detail') .'/'. $order['order_id'] ?>" class="btn btn-sm btn-custom btn-info"  style="height: 25px; width: 60px; font-size: 12px;">Detail</a>
-                                            <?php if(empty($order['order_token']) && $order['order_status'] != 'CANCEL'){ ?>
-                                                <button type="button" class="btn btn-sm btn-custom btn-danger btnCancel"  style="height: 25px; width: 60px; font-size: 12px;"  data-id="<?= $order['order_id'] ?>" >Cancel</button>
+                                            <?php 
+                                                if($order['order_status'] == 'CANCEL') {
+                                                    ?>
+                                                        <span class="bedge bedge-danger">CANCEL</span>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                         <button type="button" class="btn btn-sm btn-custom btn-primary" style="height: 25px; width: 60px; font-size: 12px;" data-toggle="modal" data-target="#modal-change-status<?=$order['order_id']?>">Upload</button>
+                                                         <a href="<?= base_url('market/history-detail') .'/'. $order['order_id'] ?>" class="btn btn-sm btn-custom btn-info"  style="height: 25px; width: 60px; font-size: 12px;">Detail</a>
+                                                    <?php
+                                                }
+                                            ?>
+                                           
+                                            <?php if((($order['order_status'] !='SENDING' && $order['order_status'] !='SUCCESS') && $order['order_status'] != 'CANCEL')){ ?>
+                                               <?php 
+                                                if($order['order_type'] == 'Dp'){
+                                                    ?>
+                                                         <button type="button" class="btn btn-sm btn-custom btn-danger btnCancel"  style="height: 25px; width: 60px; font-size: 12px;"  data-id="<?= $order['order_id'] ?>" >Cancel</button>
+                                                    <?php
+                                                }
+                                                ?>
                                             <?php } ?>
                                         </td>
                                     </tr>
@@ -139,11 +156,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="token">Upload</label>
-                                <input type="file" class="form-control" id="token" name="order_token">
+                                <input type="file" class="form-control" id="token" name="order_token" required>
                             </div>       
                             <div class="form-group">
                                 <label for="nominal">Sisa Pembayaran    <?php echo 'Rp. '.number_format($order['order_total'] - ($order['order_pay_1'] + $order['order_pay_2'])); ?> </label>
-                                <input type="number" min="0" max="<?= $order['order_total'] - $order['order_pay_1'] ?>" class="form-control" id="nominal" name="nominal">
+                                <input type="number"  min="<?= $order['order_total'] - ($order['order_pay_1'] + $order['order_pay_2']) ?>" max="<?= $order['order_total'] - ($order['order_pay_1'] + $order['order_pay_2']) ?>" class="form-control" id="nominal" name="nominal" required>
                             </div>                          
                         </div>
                         <div class="modal-footer">

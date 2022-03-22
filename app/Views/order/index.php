@@ -25,35 +25,16 @@
                     <div class="card">
                         <div class="card-header">
                             Daftar Transaksi
-
                             <div class="btn-group float-right">
                                 <form action="<?= base_url('admin/order/report')?>" method="GET">
                                     <div class="col-12">
                                         <div class="row" >
-                                            <!-- <div class="col-4">
-                                                <input class="form-control mx-1" type="date" name="start" id=""> 
-                                            </div>
-                                            <div class="col-4">
-                                                <input class="form-control mx-1" type="date" name="end" id=""> 
-                                            </div>
-                                            <div class="col-auto">
-                                                <select name="order_status_report" class="form-control">
-                                                    <option value=""  >All</option>
-                                                    <option value="CANCEL"  >CANCEL</option>
-                                                    <option value="PENDING" >PENDING</option>
-                                                    <option value="PROCESS" >PROCESS</option>
-                                                    <option value="SENDING" >SENDING</option>
-                                                    <option value="SUCCESS" >SUCCESS</option>
-                                                </select>
-                                            </div> -->
                                             <div class="col-1">
-                                                <button class="btn tbn-sm btn-info" >Laporan</button>
+                                                <button type="submit" class="btn tbn-sm btn-info" >Laporan</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-                            <!-- <a href="<?php echo base_url('transaction/import'); ?>" class="btn btn-primary btn-sm">Import</a>
-                            <a href="<?php echo base_url('transaction/export'); ?>" class="btn btn-success btn-sm">Export</a> -->
                             </div>
                         </div>
                         <div class="card-body">
@@ -76,45 +57,18 @@
                                 <?php echo session()->getFlashdata('warning');?>
                             </div>
                             <?php } ?>
-
-
-                            <!-- filter -->
-                            <!-- <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="status"> Status</label>
-                                        <select name="status" id="status" class="form-control">
-                                        <option value=""  > ALL</option>
-                                        <option value="CANCEL" <?= isset($_GET['status']) && $_GET['status'] =='CANCEL' ? 'selected' : '' ?> >CANCEL</option>
-                                        <option value="PENDING" <?= isset($_GET['status']) && $_GET['status'] =='PENDING' ? 'selected' : '' ?> >PENDING</option>
-                                        <option value="PROCESS" <?= isset($_GET['status']) && $_GET['status'] =='PROCESS' ? 'selected' : '' ?> >PROCESS</option>
-                                        <option value="SENDING" <?= isset($_GET['status']) && $_GET['status'] =='SENDING' ? 'selected' : '' ?> >SENDING</option>
-                                        <option value="SUCCESS" <?= isset($_GET['status']) && $_GET['status'] =='SUCCESS' ? 'selected' : '' ?> >SUCCESS</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <label for="search">Cari</label>
-                                        <input type="text" class="form-control" name="search" id="search">
-                                    </div>
-                                </div>
-                            </div> -->
-
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-stripped">
                                     <thead>
                                         <tr class="bg-primary">
                                             <th width="10px">No</th>
-                                            <th>Produk</th>
                                             <th>Pelanggan</th>
-                                            <th>No Hp</th>
-                                            <!-- <th>Deskripsi</th> -->
-                                            <!-- <th>Tanggal Pemesanan</th> -->
-                                            <th>Tanggal Pengambilan</th>
-                                            <th>Tujuan</th>
-                                            <th>Status Pembayaran</th>
-                                            <th>Total</th>
+                                            <!-- <th>No Hp</th> -->
+                                            <!-- <th>Di Pesan</th> -->
+                                            <th>Pengambilan</th>
+                                            <!-- <th>Tujuan</th> -->
+                                            <!-- <th>Pembayaran</th> -->
+                                            <th>Total(Rp)</th>
                                             <th>Status</th>
                                             <th>Bukti</th>
                                             <th>Aksi</th>
@@ -137,15 +91,13 @@
                                             ?>
                                         <tr style="background-color: <?php echo date('d-m-Y') == date("d-m-Y", strtotime($row['created_at'])) ? '#F8FAFD' : '' ?>;" >
                                             <td><?php echo $nomor+= 1; ?></td>
-                                            <td>#order<?php echo $row['order_id']; ?></td>
                                             <td><?php echo $row['username']; ?></td>
-                                            <td><?php echo $row['phone']; ?></td>
-                                            <!-- <td><?php echo $row['order_description']; ?></td> -->
+                                            <!-- <td><?php echo $row['phone']; ?></td> -->
                                             <!-- <td><?php echo date("d-m-Y", strtotime($row['created_at'])) ; ?></td> -->
                                             <td><?php echo date("d-m-Y", strtotime($row['order_pickup_date'])) ; ?></td>
-                                            <td><?php echo $row['order_destination']; ?></td>
-                                            <td><?php echo ($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])) <= 0 ? 'Lunas' : 'Belum Lunas'; ?></td>
-                                            <td><?php echo "Rp. ".number_format($row['order_total']); ?></td>
+                                            <!-- <td><?php echo $row['order_destination']; ?></td> -->
+                                            <!-- <td><?php echo ($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])) <= 0 ? 'Lunas' : 'Belum Lunas'; ?></td> -->
+                                            <td><?php echo number_format($row['order_total']); ?></td>
                                             <td> <span class="badge <?=$bg_status?>"><?php echo $row['order_status']; ?></span> </td>
                                             <td>
                                                 <?php if(!empty($row['order_token'])){ ?>

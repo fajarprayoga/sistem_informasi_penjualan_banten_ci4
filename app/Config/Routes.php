@@ -51,7 +51,7 @@ $routes->get('/market/term-and-service', 'Market\Home::term_and_service');
 $routes->get('market/shop', 'Market\Shop::index');
 $routes->get('market/detail/(:num)', 'Market\Detail::index/$1');
 $routes->post('/market/add-cart', 'Market\Cart::add');
-$routes->get('market/rate', 'Market\Rate::index');
+$routes->get('market/rate/comment', 'Market\Rate::comment');
 $routes->group('market',['filter' => 'market_login'], function ($routes) {
 
     // cart
@@ -75,6 +75,7 @@ $routes->group('market',['filter' => 'market_login'], function ($routes) {
 
 
     $routes->post('rate/create', 'Market\Rate::create');
+    $routes->get('nota/(:num)', 'Market\Checkout::nota/$1');
 });
 
 
@@ -124,7 +125,9 @@ $routes->group('admin',['filter' => 'admin_login'], function ($routes) {
     $routes->get('user/report/', 'User::report');
 
     $routes->get('report/product', 'Report::product');
-    // $routes->get('report/product/(:any)', 'Report::product');
+
+    $routes->get('rate/', 'Market\Rate::index');
+    $routes->post('rate/(:num)', 'Market\Rate::update/$1');
 });
 
 // $routes->group('ui', function ($routes) {

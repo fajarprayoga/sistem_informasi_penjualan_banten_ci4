@@ -14,6 +14,16 @@ class Rate_model extends Model
                     ->get()
                     ->getResultArray();
     }
+    public function getRateUi()
+    {
+        return $this->table('rates')
+                    ->where('rates.rate_status', 1)
+                    ->join('users', 'users.id = rates.user_id')
+                    ->orderBy('rate_date', 'desc')
+                    ->get()
+                    ->getResultArray();
+    }
+
     public function insertRate($data, $userId)
     {
         $rate = $this->db->table($this->table)->where('rates.user_id', $userId)->get()->getRowArray();
@@ -23,5 +33,12 @@ class Rate_model extends Model
 
             return $this->db->table($this->table)->insert($data);
         }
+    }
+
+    public function updateRate($data, $id)
+    {
+        // dd($id);
+        return $this->db->table($this->table)->update($data, ['rate_id' => $id]);
+
     }
 }
