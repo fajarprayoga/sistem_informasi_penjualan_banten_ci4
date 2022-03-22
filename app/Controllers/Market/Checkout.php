@@ -123,7 +123,7 @@ class Checkout extends BaseController
 
     public function historyDetail($id)
     {
-        $data['order'] = $this->order_model->join('users', 'users.id = orders.user_id')->getOrder($id);
+        $data['order'] = $this->order_model->getOrder($id);
 
         // dd($data['order']);
         $data['order_details'] = $this->order_detail_model->getOrderDetail($id);
@@ -182,7 +182,7 @@ class Checkout extends BaseController
 
     public function nota($id)
     {
-        $data['order'] = $this->order_model->join('users', 'users.id = orders.user_id')->getOrder($id);
+        $data['order'] = $this->order_model->getOrder($id);
 
         // // dd($data['order']);
         $data['order_details'] = $this->order_detail_model->getOrderDetail($id);

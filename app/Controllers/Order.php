@@ -63,7 +63,7 @@ class Order extends Controller
     public function order_detail($id)
     {
         // $data['order'] = $this->order_model->getOrder($id);
-        $data['order'] = $this->order_model->join('users', 'users.id = orders.user_id')->getOrder($id);
+        $data['order'] = $this->order_model->getOrder($id);
         $data['order_details'] = $this->order_detail_model->getOrderDetail($id);
         return view('order/detail', $data);
     }

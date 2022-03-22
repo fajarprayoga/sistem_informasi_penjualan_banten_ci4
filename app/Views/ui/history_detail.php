@@ -92,9 +92,19 @@
                             <td><?= $order['username'] ?></td>
                         </tr>
                         <tr>
-                            <td>Phone</td>
+                            <td>No Hp </td>
                             <td>:</td>
                             <td><?= $order['phone'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Pemesanan</td>
+                            <td>:</td>
+                            <td><?php echo date("d-m-Y", strtotime($order['order_created_at'])) ; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Pengambilan</td>
+                            <td>:</td>
+                            <td><?php echo date("d-m-Y", strtotime($order['order_pickup_date'])) ; ?></td>
                         </tr>
                         <tr>
                             <td>Status</td>
@@ -102,22 +112,17 @@
                             <td><?= $order['order_status'] ?></td>
                         </tr>
                         <tr>
-                            <td>Destination</td>
+                            <td>Tujuan</td>
                             <td>:</td>
                             <td><?= $order['order_destination'] ?></td>
                         </tr>
                         <tr>
-                            <td>Delivery Cost</td>
-                            <td>:</td>
-                            <td> <?php echo 'Rp. '.number_format($delivery_cost); ?></td>
-                        </tr>
-                        <tr>
-                            <td>Type</td>
+                            <td>Tipe</td>
                             <td>:</td>
                             <td> <?php echo ($order['order_type']); ?></td>
                         </tr>
                         <tr>
-                            <td>Total Pembayarn</td>
+                            <td>Total Pembayaran</td>
                             <td>:</td>
                             <td>
                                 <?php echo 'Rp. '.number_format($order['order_pay_1'] + $order['order_pay_2']); ?>
@@ -129,7 +134,7 @@
                             <td> <?php echo 'Rp. '.number_format($order['order_total']- ($order['order_pay_1'] + $order['order_pay_2'])); ?></td>
                         </tr>
                         <tr>
-                            <td>Description</td>
+                            <td>Deskripsi</td>
                             <td>:</td>
                             <td><?= $order['order_description'] ?></td>
                         </tr>

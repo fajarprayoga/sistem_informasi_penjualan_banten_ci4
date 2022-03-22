@@ -117,9 +117,9 @@
                                             <td><?php echo $row['username']; ?></td>
                                             <td><?php echo $row['phone']; ?></td>
                                             <td><?php echo date('j F Y', strtotime($row['order_pickup_date'])); ?></td>
-                                            <td><?php echo "Rp. ".number_format($row['order_total'], false, false, "."); ?></td>
-                                            <td><?php echo "Rp. ".number_format(($row['order_pay_1'] + $row['order_pay_2']), false, false, "."); ?></td>
-                                            <td><?php echo "Rp. ".number_format(($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])), false, false, "."); ?></td>
+                                            <td><?php echo number_format($row['order_total'], false, false, "."); ?></td>
+                                            <td><?php echo number_format(($row['order_pay_1'] + $row['order_pay_2']), false, false, "."); ?></td>
+                                            <td><?php echo number_format(($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])), false, false, "."); ?></td>
                                             <td><?php echo $row['order_status']; ?></td>
                                         </tr>
                                         <?php } ?>

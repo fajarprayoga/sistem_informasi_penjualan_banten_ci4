@@ -83,7 +83,7 @@
                                 <tr>
                                     <td>Tanggal Di pesan</td>
                                     <td class="titik" >:</td>
-                                    <td><?php echo date("d-m-Y", strtotime($order['created_at'])) ; ?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($order['order_created_at'])) ; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Pengambilan</td>
@@ -169,7 +169,7 @@
                         <tr>
                             <td>Pemesanan</td>
                             <td>:</td>
-                            <td><?php echo date("d-m-Y", strtotime($order['created_at'])) ; ?></td>
+                            <td><?php echo date("d-m-Y", strtotime($order['order_created_at'])) ; ?></td>
                         </tr>
                         <tr>
                             <td>Pengambilan</td>

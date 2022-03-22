@@ -6,6 +6,9 @@
                 margin-bottom: 5px;
                 font-size: 20px;
             }
+            .table-custom {
+                vertical-align: top;
+            }
         </style>
         <div class="single-product-area section-padding-100 clearfix">
             <div class="container-fluid">
@@ -27,29 +30,29 @@
                                 <li class="list-custom" >4. Setiap pemesanan yang dilakukan tidak dapat dilakukan pembatalan sepihak, apabila terjadi pembatalan sepihak maka pembayaran yang telah dilakukan tidak dapat dikembalikan</li>
                                 <li class="list-custom" >5. Banten akan dikirim sehari sebelum tanggal booking</li>
                             </ul> -->
-                            <table style="vertical-align: top;" >
+                            <table >
                                 <tr>
-                                    <td>1. </td>
+                                    <td class="table-custom">1. </td>
                                     <td style="width: 10px;" ></td>
                                     <td>Pengiriman seluruh Bali dikenakan biaya Rp. <?= number_format(getenv('delivery')) ?></td>
                                 </tr>
                                 <tr>
-                                    <td>2. </td>
+                                    <td class="table-custom">2. </td>
                                     <td style="width: 10px;" ></td>
                                     <td>Pemesanan Banten dilakukan minimal 7 hari sebelum acara</td>
                                 </tr>
                                 <tr>
-                                    <td>3. </td>
+                                    <td class="table-custom">3. </td>
                                     <td style="width: 10px;" ></td>
                                     <td>Banten akan diproses setelah melakukan pembayaran</td>
                                 </tr>
                                 <tr>
-                                    <td>4. </td>
+                                    <td class="table-custom">4. </td>
                                     <td style="width: 10px;" ></td>
                                     <td>Setiap pemesanan yang dilakukan tidak dapat dilakukan pembatalan sepihak, apabila terjadi pembatalan sepihak maka pembayaran yang telah dilakukan tidak dapat dikembalikan</td>
                                 </tr>
                                 <tr>
-                                    <td>5. </td>
+                                    <td class="table-custom">5. </td>
                                     <td style="width: 10px;" ></td>
                                     <td>Banten akan dikirim sehari sebelum tanggal booking</td>
                                 </tr>

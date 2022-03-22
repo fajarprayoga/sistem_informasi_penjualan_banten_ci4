@@ -27,7 +27,7 @@
                 <tr>
                     <td>Pemesanan</td>
                     <td>:</td>
-                    <td><?php echo date("d-m-Y", strtotime($order['created_at'])) ; ?></td>
+                    <td><?php echo date("d-m-Y", strtotime($order['order_created_at'])) ; ?></td>
                 </tr>
                 <tr>
                     <td>Pengambilan</td>

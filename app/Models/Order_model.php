@@ -10,13 +10,21 @@ class Order_model extends Model
     {
         if($id === false){
             return $this->table('orders')
+                ->select('*, orders.created_at as order_created_at')
                 ->orderBy('orders.order_id','desc')
                 ->join('users', 'users.id = orders.user_id')
                 // ->join('order_details', 'order_details.order_id = orders.order_id')
                 ->get()
                 ->getResultArray();
         } else {
-            return $this->getWhere(['order_id' => $id])->getRowArray();
+            // return $this->getWhere(['order_id' => $id])->getRowArray();
+              return $this->table('orders')
+                ->select('*, orders.created_at as order_created_at')
+                ->orderBy('orders.order_id','desc')
+                ->join('users', 'users.id = orders.user_id')
+                // ->join('order_details', 'order_details.order_id = orders.order_id')
+                ->get()
+                ->getRowArray();
         }  
     }
 
