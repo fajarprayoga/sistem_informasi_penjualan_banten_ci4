@@ -124,10 +124,10 @@
                                                     <td>
                                                         <?= $item['order_detail_quantity'] ?>
                                                     </td>
-                                                    <td>
+                                                    <td align="right" >
                                                         <?php echo number_format($item['order_detail_price']); ?>
                                                     </td>
-                                                    <td>
+                                                    <td align="right" >
                                                         <?php echo number_format($item['order_detail_price'] * $item['order_detail_quantity']); ?>
                                                     </td>
                                                 </tr>
@@ -202,7 +202,7 @@
                             <td>Sisa Pembayaran</td>
                             <td>:</td>
                             <td> <?php echo 'Rp. '.number_format($order['order_total']- ($order['order_pay_1'] + $order['order_pay_2'])); ?></td>
-                        </tr>
+                        </tr> align="right" 
                         <tr>
                             <td>Deskripsi</td>
                             <td>:</td>

@@ -57,7 +57,7 @@
                                             <th>SKU</th>
                                             <th>Nama</th>
                                             <th>Kategori</th>
-                                            <th>Harga</th>
+                                            <th>Harga (Rp)</th>
                                             <th>Status</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
@@ -70,7 +70,7 @@
                                             <td><?php echo $row['product_sku']; ?></td>
                                             <td><?php echo $row['product_name']; ?></td>
                                             <td><?php echo $row['category_name']; ?></td>
-                                            <td><?php echo "Rp. ".number_format($row['product_price']); ?></td>
+                                            <td align="right" ><?php echo number_format($row['product_price']); ?></td>
                                             <td><?php echo $row['product_status']; ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group">

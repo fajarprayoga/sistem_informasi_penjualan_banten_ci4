@@ -106,7 +106,7 @@
                                             <th>Tanggal Dipesan</th>
                                             <th>Harga(Rp)</th>
                                             <th>Pembayaran(Rp)</th>
-                                            <th>Sisa Pembayaran</th>
+                                            <th>Sisa Pembayaran(Rp)</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -117,9 +117,9 @@
                                             <td><?php echo $row['username']; ?></td>
                                             <td><?php echo $row['phone']; ?></td>
                                             <td><?php echo date('j F Y', strtotime($row['order_pickup_date'])); ?></td>
-                                            <td><?php echo number_format($row['order_total'], false, false, "."); ?></td>
-                                            <td><?php echo number_format(($row['order_pay_1'] + $row['order_pay_2']), false, false, "."); ?></td>
-                                            <td><?php echo number_format(($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])), false, false, "."); ?></td>
+                                            <td align="right" ><?php echo number_format($row['order_total'], false, false, "."); ?></td>
+                                            <td align="right" ><?php echo number_format(($row['order_pay_1'] + $row['order_pay_2']), false, false, "."); ?></td>
+                                            <td align="right" ><?php echo number_format(($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])), false, false, "."); ?></td>
                                             <td><?php echo $row['order_status']; ?></td>
                                         </tr>
                                         <?php } ?>

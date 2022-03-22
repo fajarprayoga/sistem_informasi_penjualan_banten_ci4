@@ -97,7 +97,7 @@
                                             <td><?php echo date("d-m-Y", strtotime($row['order_pickup_date'])) ; ?></td>
                                             <!-- <td><?php echo $row['order_destination']; ?></td> -->
                                             <!-- <td><?php echo ($row['order_total'] - ($row['order_pay_1'] + $row['order_pay_2'])) <= 0 ? 'Lunas' : 'Belum Lunas'; ?></td> -->
-                                            <td><?php echo number_format($row['order_total']); ?></td>
+                                            <td align="right" ><?php echo number_format($row['order_total']); ?></td>
                                             <td> <span class="badge <?=$bg_status?>"><?php echo $row['order_status']; ?></span> </td>
                                             <td>
                                                 <?php if(!empty($row['order_token'])){ ?>
