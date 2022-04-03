@@ -44,8 +44,8 @@
                                                                 <!-- <p style="font-size: 2vh;">Qty</p> -->
                                                                 <div class="quantity" >
                                                                     <span  class="qty-minus" onclick="qty('min', <?=$cart['id']?>,  <?=$cart['price']?>)"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                                    <input type="number" class="qty-text" id="qty<?= $cart['id']?>" step="1" min="1"  name="quantity" value="<?= $cart['qty'] ?>">
-                                                                    <span class="qty-plus" onclick="qty('plus',  <?=$cart['id']?>,  <?=$cart['price']?>)"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                                                    <input  disabled type="number" class="qty-text" id="qty<?= $cart['id']?>" step="1" min="1" max="3"  name="quantity" value="<?= $cart['qty'] ?>">
+                                                                    <span class="qty-plus" onclick="$('#qty' + <?=$cart['id']?>).val() < 3 ? qty('plus',  <?=$cart['id']?>,  <?=$cart['price']?>) : alert($('#qty' + <?=$cart['id']?>).val())"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                                                 </div>
                                                                 <div class="m-3"></div>
                                                                 <span onclick="deletById(<?=$cart['id']?>)" class="btn btn-danger" >
@@ -89,8 +89,8 @@
                 // }, 0);
                 let total = <?php echo $total ?>;
                 $('#subtotal').text(formatRupiah(total.toString(), 'Rp'));
-                $('#total').text(formatRupiah((total + <?=getenv('delivery')?>).toString(), 'Rp'))
-                $('#total_desc').text(formatRupiah((total + <?=getenv('delivery')?>).toString(), 'Rp'))
+                $('#total').text(formatRupiah((total).toString(), 'Rp'))
+                $('#total_desc').text(formatRupiah((total).toString(), 'Rp'))
             });
 
 
@@ -101,6 +101,7 @@
                 var qty =  parseInt($('#qty' + id).val());
                 // alert('qty');
                 $idQty =  $('#qty' +id)
+                
                 if(type == 'plus'){
                     qty = $idQty.val(total + 1);
                     edit(id, total+1, price, type);
@@ -136,8 +137,8 @@
                                 subtotal -=price;
                                 $('#subtotal').text(formatRupiah(subtotal.toString(),'Rp'))
                             }
-                            $('#total').text(formatRupiah((subtotal + <?=getenv('delivery')?> ).toString(), 'Rp'))
-                            $('#total_desc').text(formatRupiah((subtotal + <?=getenv('delivery')?> ).toString(), 'Rp'))
+                            $('#total').text(formatRupiah((subtotal).toString(), 'Rp'))
+                            $('#total_desc').text(formatRupiah((subtotal).toString(), 'Rp'))
                         }else{
                             return false;
                         }

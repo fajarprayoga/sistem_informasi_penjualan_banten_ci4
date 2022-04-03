@@ -83,7 +83,7 @@ class Cart extends BaseController
                 ];
 
                 $this->session->set($carts);
-                return 'Proudk di tambahkan ke keranjang';
+                return 'Produk di tambahkan ke keranjang';
             }
         }else{
             return 'Mohon login terlebih dahulu';

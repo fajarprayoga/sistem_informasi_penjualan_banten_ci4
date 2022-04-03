@@ -106,9 +106,13 @@
                                             </td>
                                             <td>
                                                 <!-- <div class="btn-group"> -->
-                                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-change-status<?=$row['order_id']?>">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
+                                                   <?php if($row['order_status'] !='SUCCESS') {
+                                                        ?>
+                                                             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-change-status<?=$row['order_id']?>">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                        <?php
+                                                   }?>
                                                     <a href="<?= base_url('admin/order-detail') .'/'. $row['order_id']  ?>" class="btn btn-sm btn-info">
                                                         <i class="fa fa-eye"></i>
                                                     </a>

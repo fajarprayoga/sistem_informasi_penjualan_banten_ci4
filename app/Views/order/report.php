@@ -28,7 +28,7 @@
                     <td>Phone</td>
                     <td>Product</td>
                     <td>Status</td>
-                    <td>Total</td>
+                    <td>Total (Rp)</td>
                     <td>Date</td>
                     <td>Destination</td>
                 </tr>
@@ -52,7 +52,7 @@
                         <td>
                             <?= $order['order_status'] ?>
                         </td>
-                        <td><?= "Rp. ".number_format($order['order_total']); ?></td>
+                        <td><?= ($order['order_total']); ?></td>
                         <td><?= date("d-m-Y", strtotime($order['created_at']))  ?></td>
                         <td><?= $order['order_destination'] ?></td>
                     </tr>
